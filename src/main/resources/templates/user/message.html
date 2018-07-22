@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<script src="http://how2j.cn/study/js/jquery/2.0.0/jquery.min.js"></script>
+<link href="http://how2j.cn/study/css/bootstrap/3.3.6/bootstrap.min.css" rel="stylesheet">
+<script src="http://how2j.cn/study/js/bootstrap/3.3.6/bootstrap.min.js"></script>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body class="container">
+    <div>
+        <form border="5px" class="form-horizontal">
+            <tr>
+                <th>name</th>
+            </tr>
+            <tr>
+                欢迎管理员：<td th:text="${session.user.username}">ccc</td>
+            </tr>
+        </form>
+    </div>
+    <div class="col-sm-2 control-label">
+        <a th:href="@{/toEdit(userToken=${session.user.userToken})}">修改</a>查看用户信息</a>
+    </div>
+</body>
+</html>

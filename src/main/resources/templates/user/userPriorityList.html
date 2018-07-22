@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<script src="http://how2j.cn/study/js/jquery/2.0.0/jquery.min.js"></script>
+<link href="http://how2j.cn/study/css/bootstrap/3.3.6/bootstrap.min.css" rel="stylesheet">
+<script src="http://how2j.cn/study/js/bootstrap/3.3.6/bootstrap.min.js"></script>
+<head>
+    <meta charset="UTF-8"/>
+    <title>userList</title>
+</head>
+<body class="container">
+<br/>
+<h1>用户权限关系列表</h1>
+<br/><br/>
+<div class="with:80%">
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>UserToken</th>
+            <th>RoleId</th>
+            <th>Operate</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr  th:each="userRole : ${userRoles}">
+            <th scope="row" th:text="${userRole.user_token}">1</th>
+            <td th:text="${userRole.role_id}">neo</td>
+            <td><a th:href="@{/toChangePriority(user_token=${userRole.user_token})}" class="btn btn-warning">权限变更</a></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<div class="form-group">
+    <div class="col-sm-offset-0 col-sm-10">
+        <a href="/toAdd" th:href="@{/list}" class="btn btn-info">返回用户信息列表</a>
+    </div>
+</div>
+
+</body>
+</html>
